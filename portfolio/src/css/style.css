@@ -14,7 +14,7 @@
     font-size: 1.6em; }
   #about .fa:hover {
     color: #4DD0E1; }
-  #about .fa:visited {
+  #about a:visited {
     color: #99A3A4; }
 
 #portfolio .card {
