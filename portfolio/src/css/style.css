@@ -1,0 +1,58 @@
+.navbar {
+  background-color: #FFF;
+  border-bottom: #424242;
+  opacity: 0.9; }
+
+#about {
+  padding-top: 30px;
+  background-color: #424242; }
+  #about .col-8 {
+    padding-top: 13px; }
+  #about p {
+    font-size: 1.1em; }
+  #about .fa {
+    font-size: 1.6em; }
+  #about .fa:hover {
+    color: #4DD0E1; }
+
+#portfolio .card {
+  width: 100%;
+  height: 100%;
+  border-color: #17a2b8; }
+
+#portfolio .display-4 {
+  color: #566573; }
+
+#portfolio h3 {
+  color: #566573; }
+
+#portfolio p {
+  color: #868e96; }
+
+#portfolio .card:hover {
+  background-color: #566573;
+  border-color: #566573; }
+  #portfolio .card:hover h3 {
+    color: #FFF; }
+  #portfolio .card:hover p {
+    color: #FFF; }
+
+#contact {
+  background-color: #0097A7; }
+  #contact p {
+    font-size: 1.1em; }
+  #contact .img-fluid {
+    padding-top: 45px; }
+  #contact .btn {
+    color: #424242;
+    background-color: #FFF; }
+  #contact .btn:hover {
+    color: #FFF;
+    background-color: #424242; }
+
+#main-footer {
+  background-color: #424242; }
+  #main-footer a, #main-footer p {
+    color: #FFF; }
+  #main-footer a:hover {
+    color: #4DD0E1; }
