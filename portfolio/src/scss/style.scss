@@ -2,6 +2,7 @@ $primary-color: #424242;
 $portfolio-color: #566573;
 $contact-bg: #0097A7;
 $hover: #4DD0E1;
+$visit: #99A3A4;
 
 .navbar{
 	background-color: #FFF;
@@ -24,8 +25,11 @@ $hover: #4DD0E1;
 	.fa:hover{
 		color: $hover;
 	}
+	.fa:visited{
+		color: $visit;
+	}
 	a:visited{
-		color: #99A3A4;
+		color: $visit;
 	}
 
 }
