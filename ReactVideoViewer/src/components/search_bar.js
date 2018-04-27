@@ -20,7 +20,11 @@ class SearchBar extends Component{
 	render() {
 		return (
 			<div>
-			<input onChange={ (event) => this.setState({ term: event.target.value })} />
+			<input 
+				//input is now a controlled component. this.state.term is the correct value of input element at any given time.
+				value = {this.state.term}
+				//when user types in an input, it only triggers an event. The even then sets the state. value then picks up the state.
+				onChange={ (event) => this.setState({ term: event.target.value })} />
 			<br></br>
 			Value of input: {this.state.term}
 			</div>
@@ -45,3 +49,12 @@ export default SearchBar;
 //	}
 
 //By using arrow functions, we avoid having to type the function keyword, return keyword (it’s implicit in arrow functions), and curly brackets.
+
+
+//old return statement for render, where input informs state
+	//<div>
+	//		<input onChange={ (event) => this.setState({ term: event.target.value })} />
+	//		<br></br>
+	//		Value of input: {this.state.term}
+	//</div>
+
