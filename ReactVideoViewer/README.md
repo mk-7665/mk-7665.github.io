@@ -1,3 +1,6 @@
+#this project is made from Stephen Grider's "Modern React with Redux" course on Udemy
+
+
 # ReduxSimpleStarter
 
 Interested in learning [Redux](https://www.udemy.com/react-redux/)?
