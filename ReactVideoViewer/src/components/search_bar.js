@@ -25,6 +25,7 @@ class SearchBar extends Component{
 				value = {this.state.term}
 				//when user types in an input, it only triggers an event. The even then sets the state. value then picks up the state.
 				onChange={ (event) => this.setState({ term: event.target.value })} />
+				
 			<br></br>
 			Value of input: {this.state.term}
 			</div>
