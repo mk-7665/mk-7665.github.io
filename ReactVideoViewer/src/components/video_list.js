@@ -10,7 +10,7 @@ const VideoList = (props) => {
 
 	return (
 		//to define a css class inside an HTML tag, in React, it is className. Not class! Class is used for declaring react components!
-		<ul className="col-md-4 list-group" >
+		<ul className="col-md-4 col-lg-5 list-group" >
 			{videoItems}
 		</ul>
 		);
