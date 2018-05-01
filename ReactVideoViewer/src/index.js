@@ -5,6 +5,7 @@ import YTSearch from 'youtube-api-search';
 //if it's a file you write, you have to provide the relative path to it. Not so with library files.
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
+import VideoDetail from './components/video_details';
 //'react' is the name of the dependency folder
 
 //the most "parent" component should be the one that fetches api data. Usually the index.js
@@ -31,10 +32,13 @@ class App extends Component {
 
 	//passing data (videos) from parent component App to child component VideoList, you can pass it as a prop.
 	//with state being the prop. videos being the data. this pointing to child component VideoList. 
+	//in VideoDetail component, pass in the first video to avoid a blank page on load.
+	//components will appear in the order listed.
 	render ( ){
 		return(
 			<div>
 				<SearchBar />
+				<VideoDetail video={this.state.videos[0]} />
 				<VideoList videos={this.state.videos} />
 			</div>
 		);
