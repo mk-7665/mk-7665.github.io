@@ -5,7 +5,13 @@ const VideoList = (props) => {
 	const videoItems = props.videos.map((video) => {
 		//for each video object, put it inside a video_list_item component, which is a pair of <li> tags. Returns an array of components.
 		//etag is the special id for each video from the youtube-search api. Define the key as the etag
-		return <VideoListItem key={video.etag} video={video} />
+		//video_list passes onVideoSelect to child component video_list_item as a prop.
+		return (
+			<VideoListItem 
+			onVideoSelect={props.onVideoSelect}
+			key={video.etag} 
+			video={video} />
+			);
 	});
 
 	return (

@@ -20,31 +20,35 @@ const API_KEY = 'AIzaSyCcyCyX4Fa8f2s-m1mVFuzri9Lf2uLYtTg';
 class App extends Component {
 	constructor(props){
 		super(props);
-		//initializing this.state to an empty array of videos
-		this.state = { videos: [] };
+		//initializing this.state with an array of videos and the concept of a selectedVideo
+		this.state = { videos: [],
+					   selectedVideo: null };
 
 		//moving the search inside the constructor makes sure the user sees some data right away. It is immediately kicked off.
 		YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
-			this.setState({ videos });
-			//shortened syntax for this.setState({ videos: videos });
+			this.setState({ videos: videos,
+							selectedVideo: videos[0] });
 		});
 	}
 
 	//passing data (videos) from parent component App to child component VideoList, you can pass it as a prop.
 	//with state being the prop. videos being the data. this pointing to child component VideoList. 
-	//in VideoDetail component, pass in the first video to avoid a blank page on load.
+	//add a function, onVideoSelect to handle a video being selected. It will be passed down to VideoList as a prop.
 	//components will appear in the order listed.
 	render ( ){
 		return(
 			<div>
 				<SearchBar />
-				<VideoDetail video={this.state.videos[0]} />
-				<VideoList videos={this.state.videos} />
+				<VideoDetail video={this.state.selectedVideo} />
+				<VideoList 
+				onVideoSelect ={ selectedVideo => this.setState({selectedVideo}) }
+				videos={this.state.videos} />
 			</div>
 		);
 	}		
 }
 
+//callback flow of onVideoSelect: App -> video_list -> video_list_item 
 //Take this component generated HTML and put it on the page (in the DOM)
 //you need to pass an instance of App, not the class. Put a self-closing tag around App.
 //second argument is where to put it in the DOM. 
