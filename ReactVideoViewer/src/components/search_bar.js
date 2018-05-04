@@ -19,18 +19,23 @@ class SearchBar extends Component{
 	//update the state here inside an event handler with this.setState()
 	render() {
 		return (
-			<div>
+			<div className="search-bar">
 			<input 
 				//input is now a controlled component. this.state.term is the correct value of input element at any given time.
 				value = {this.state.term}
-				//when user types in an input, it only triggers an event. The even then sets the state. value then picks up the state.
-				onChange={ (event) => this.setState({ term: event.target.value })} />
+				//when input is changed, it calls the event handler
+				onChange={ event => this.onInputChange( event.target.value )} />
 				
-			<br></br>
-			Value of input: {this.state.term}
 			</div>
 		);
 		
+	}
+
+	//separate out the event callback from the render function
+	//event handler sets the state with search term and searches for the video with the handed-down prop onSearchTermChange()
+	onInputChange(term){
+		this.setState({term: term});
+		this.props.onSearchTermChange(term);
 	}
 
 }
@@ -39,23 +44,4 @@ class SearchBar extends Component{
 export default SearchBar;
 
 
-//old function-based component
-//const SearchBar = () => {
-//	return <input />
-//};
-
-//Old event handler function 
-//onInputChange(event) {
-	//console.log(event.target.value);
-//	}
-
-//By using arrow functions, we avoid having to type the function keyword, return keyword (it’s implicit in arrow functions), and curly brackets.
-
-
-//old return statement for render, where input informs state
-	//<div>
-	//		<input onChange={ (event) => this.setState({ term: event.target.value })} />
-	//		<br></br>
-	//		Value of input: {this.state.term}
-	//</div>
 
