@@ -24,8 +24,13 @@ class App extends Component {
 		this.state = { videos: [],
 					   selectedVideo: null };
 
-		//moving the search inside the constructor makes sure the user sees some data right away. It is immediately kicked off.
-		YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+	//starts the initial search with surfboards
+	this.videoSearch('surfboards');
+
+	}
+	//refactored youtube search into its own method. Takes a single parameter: a search term.
+	videoSearch(term){
+		YTSearch({key: API_KEY, term: term }, (videos) => {
 			this.setState({ videos: videos,
 							selectedVideo: videos[0] });
 		});
@@ -38,7 +43,7 @@ class App extends Component {
 	render ( ){
 		return(
 			<div>
-				<SearchBar />
+				<SearchBar onSearchTermChange={term => this.videoSearch(term)} />
 				<VideoDetail video={this.state.selectedVideo} />
 				<VideoList 
 				onVideoSelect ={ selectedVideo => this.setState({selectedVideo}) }
