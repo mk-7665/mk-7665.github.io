@@ -1,3 +1,5 @@
+import _ from 'lodash';
+//lodash is an npm module that improves browser and search performance & other popular utilities.
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 //this is an npm module. The YTSearch method makes an ajax call.
@@ -36,14 +38,20 @@ class App extends Component {
 		});
 	}
 
+	//components will appear in the order listed.
 	//passing data (videos) from parent component App to child component VideoList, you can pass it as a prop.
 	//with state being the prop. videos being the data. this pointing to child component VideoList. 
 	//add a function, onVideoSelect to handle a video being selected. It will be passed down to VideoList as a prop.
-	//components will appear in the order listed.
+	//adding onSearchTermChange property to SearchBar, which updates the state of term with every new video search.
+	
+	//debounce from lodash library throttles input of search term, to say, every 300 miliseconds. 
+	//debounce returns a function where the inner function can only be called once every 300 milliseconds.
+
 	render ( ){
+		const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
 		return(
 			<div>
-				<SearchBar onSearchTermChange={term => this.videoSearch(term)} />
+				<SearchBar onSearchTermChange={videoSearch} />
 				<VideoDetail video={this.state.selectedVideo} />
 				<VideoList 
 				onVideoSelect ={ selectedVideo => this.setState({selectedVideo}) }
